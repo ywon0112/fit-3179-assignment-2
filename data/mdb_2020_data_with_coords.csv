@@ -1,0 +1,208 @@
+Region,Industry,Volume_applied,GVIAP,Rainfall,GVIAP_Millions,Latitude,Longitude
+Eastern Mt Lofty,All other crops,27,0,0,0,-35.1,139
+Eastern Mt Lofty,Dairy,0,34909886,0,34.91,-35.1,139
+Eastern Mt Lofty,Grapevines,30329,73666591,0,73.67,-35.1,139
+Eastern Mt Lofty,Other broadacre,0,98,0,0,-35.1,139
+Eastern Mt Lofty,Other cereals,0,46348,0,0.05,-35.1,139
+Eastern Mt Lofty,Pastures - Grazing,22782,8961172,0,8.96,-35.1,139
+Eastern Mt Lofty,Pastures - Hay,4184,2375578,0,2.38,-35.1,139
+Eastern Mt Lofty,Vegetables,6209,45003336,0,45,-35.1,139
+NSW Barwon Darling,All other crops,9140,0,0,0,-30.8,146.5
+NSW Barwon Darling,Cotton,17361,14384450,0,14.38,-30.8,146.5
+NSW Barwon Darling,Dairy,0,404106,0,0.4,-30.8,146.5
+NSW Barwon Darling,Grapevines,2569,7380082,0,7.38,-30.8,146.5
+NSW Barwon Darling,Other broadacre,0,281501,0,0.28,-30.8,146.5
+NSW Barwon Darling,Other cereals,0,2703980,0,2.7,-30.8,146.5
+NSW Barwon Darling,Pastures - Grazing,482,771151,0,0.77,-30.8,146.5
+NSW Barwon Darling,Pastures - Hay,0,311139,0,0.31,-30.8,146.5
+NSW Barwon Darling,Vegetables,263,1063235,0,1.06,-30.8,146.5
+NSW Border Rivers,All other crops,8043,0,389,0,-29,151
+NSW Border Rivers,Cotton,20330,19411649,389,19.41,-29,151
+NSW Border Rivers,Dairy,0,475,389,0,-29,151
+NSW Border Rivers,Grapevines,8,4571,389,0,-29,151
+NSW Border Rivers,Other broadacre,0,219322,389,0.22,-29,151
+NSW Border Rivers,Other cereals,0,3432810,389,3.43,-29,151
+NSW Border Rivers,Pastures - Grazing,1554,6915240,389,6.92,-29,151
+NSW Border Rivers,Pastures - Hay,0,158879,389,0.16,-29,151
+NSW Border Rivers,Vegetables,1385,24506077,389,24.51,-29,151
+NSW Gwydir,All other crops,10130,0,426,0,-29.8,149.8
+NSW Gwydir,Cotton,29362,28246917,426,28.25,-29.8,149.8
+NSW Gwydir,Dairy,0,698,426,0,-29.8,149.8
+NSW Gwydir,Grapevines,1,622,426,0,-29.8,149.8
+NSW Gwydir,Other broadacre,0,515784,426,0.52,-29.8,149.8
+NSW Gwydir,Other cereals,0,3993464,426,3.99,-29.8,149.8
+NSW Gwydir,Pastures - Grazing,659,2627564,426,2.63,-29.8,149.8
+NSW Gwydir,Pastures - Hay,0,132200,426,0.13,-29.8,149.8
+NSW Gwydir,Vegetables,189,3344906,426,3.34,-29.8,149.8
+NSW Lachlan,All other crops,27515,0,344,0,-33.4,147.1
+NSW Lachlan,Cotton,11152,5030098,344,5.03,-33.4,147.1
+NSW Lachlan,Dairy,0,10721018,344,10.72,-33.4,147.1
+NSW Lachlan,Grapevines,10330,20807325,344,20.81,-33.4,147.1
+NSW Lachlan,Other broadacre,0,273771,344,0.27,-33.4,147.1
+NSW Lachlan,Other cereals,0,10191368,344,10.19,-33.4,147.1
+NSW Lachlan,Pastures - Grazing,9165,11223872,344,11.22,-33.4,147.1
+NSW Lachlan,Pastures - Hay,18289,9113425,344,9.11,-33.4,147.1
+NSW Lachlan,Rice,954,615323,344,0.62,-33.4,147.1
+NSW Lachlan,Vegetables,4352,24438694,344,24.44,-33.4,147.1
+NSW Lower Darling,All other crops,2518,0,126,0,-32.8,142.3
+NSW Lower Darling,Cotton,1359,591410,126,0.59,-32.8,142.3
+NSW Lower Darling,Fruit,20666,72385456,126,72.39,-32.8,142.3
+NSW Lower Darling,Grapevines,48262,138648830,126,138.65,-32.8,142.3
+NSW Lower Darling,Other cereals,0,340924,126,0.34,-32.8,142.3
+NSW Lower Darling,Pastures - Grazing,1132,4209036,126,4.21,-32.8,142.3
+NSW Lower Darling,Pastures - Hay,1442,1401764,126,1.4,-32.8,142.3
+NSW Lower Darling,Vegetables,4369,16062903,126,16.06,-32.8,142.3
+NSW Macquarie-Castlereagh,All other crops,16189,0,427,0,-31.5,148
+NSW Macquarie-Castlereagh,Cotton,13429,8050563,427,8.05,-31.5,148
+NSW Macquarie-Castlereagh,Dairy,0,4675364,427,4.68,-31.5,148
+NSW Macquarie-Castlereagh,Grapevines,2008,1211619,427,1.21,-31.5,148
+NSW Macquarie-Castlereagh,Other broadacre,0,380705,427,0.38,-31.5,148
+NSW Macquarie-Castlereagh,Other cereals,0,1413994,427,1.41,-31.5,148
+NSW Macquarie-Castlereagh,Pastures - Grazing,4474,4005457,427,4.01,-31.5,148
+NSW Macquarie-Castlereagh,Pastures - Hay,18476,8505432,427,8.51,-31.5,148
+NSW Macquarie-Castlereagh,Vegetables,4505,25174398,427,25.17,-31.5,148
+NSW Murray Above,All other crops,39359,0,291,0,-36,146.9
+NSW Murray Above,Cotton,4795,2292410,291,2.29,-36,146.9
+NSW Murray Above,Dairy,0,50003821,291,50,-36,146.9
+NSW Murray Above,Fruit,742,1682,291,0,-36,146.9
+NSW Murray Above,Grapevines,2612,5459729,291,5.46,-36,146.9
+NSW Murray Above,Other broadacre,0,1939258,291,1.94,-36,146.9
+NSW Murray Above,Other cereals,0,19175388,291,19.18,-36,146.9
+NSW Murray Above,Pastures - Grazing,35894,100138836,291,100.14,-36,146.9
+NSW Murray Above,Pastures - Hay,23941,14360687,291,14.36,-36,146.9
+NSW Murray Above,Rice,4740,2929508,291,2.93,-36,146.9
+NSW Murray Above,Vegetables,1891,6874674,291,6.87,-36,146.9
+NSW Murray Below,All other crops,7147,0,245,0,-34.7,143.5
+NSW Murray Below,Dairy,0,16394636,245,16.39,-34.7,143.5
+NSW Murray Below,Fruit,3200,11506691,245,11.51,-34.7,143.5
+NSW Murray Below,Grapevines,1214,2564243,245,2.56,-34.7,143.5
+NSW Murray Below,Other broadacre,0,354586,245,0.35,-34.7,143.5
+NSW Murray Below,Other cereals,0,3642041,245,3.64,-34.7,143.5
+NSW Murray Below,Pastures - Grazing,11838,33089907,245,33.09,-34.7,143.5
+NSW Murray Below,Pastures - Hay,6726,4116731,245,4.12,-34.7,143.5
+NSW Murray Below,Rice,949,586223,245,0.59,-34.7,143.5
+NSW Murray Below,Vegetables,874,3176755,245,3.18,-34.7,143.5
+NSW Murrumbidgee,All other crops,111989,0,304,0,-34.7,146.5
+NSW Murrumbidgee,Almonds,55697,44810315,304,44.81,-34.7,146.5
+NSW Murrumbidgee,Cotton,126925,55691834,304,55.69,-34.7,146.5
+NSW Murrumbidgee,Dairy,0,18826673,304,18.83,-34.7,146.5
+NSW Murrumbidgee,Fruit,69661,260861472,304,260.86,-34.7,146.5
+NSW Murrumbidgee,Grapevines,62717,120484278,304,120.48,-34.7,146.5
+NSW Murrumbidgee,Other broadacre,0,3376517,304,3.38,-34.7,146.5
+NSW Murrumbidgee,Other cereals,0,55088267,304,55.09,-34.7,146.5
+NSW Murrumbidgee,Pastures - Grazing,41058,71219083,304,71.22,-34.7,146.5
+NSW Murrumbidgee,Pastures - Hay,23804,11512984,304,11.51,-34.7,146.5
+NSW Murrumbidgee,Rice,46833,29878822,304,29.88,-34.7,146.5
+NSW Murrumbidgee,Vegetables,7572,39798747,304,39.8,-34.7,146.5
+NSW Namoi,All other crops,18414,0,463,0,-31,150.2
+NSW Namoi,Cotton,38051,36634825,463,36.63,-31,150.2
+NSW Namoi,Dairy,0,224167,463,0.22,-31,150.2
+NSW Namoi,Grapevines,3,2181,463,0,-31,150.2
+NSW Namoi,Other broadacre,0,692521,463,0.69,-31,150.2
+NSW Namoi,Other cereals,0,7457607,463,7.46,-31,150.2
+NSW Namoi,Pastures - Grazing,6496,12451033,463,12.45,-31,150.2
+NSW Namoi,Pastures - Hay,0,5075537,463,5.08,-31,150.2
+NSW Namoi,Vegetables,46,669379,463,0.67,-31,150.2
+QLD Border Rivers,All other crops,11239,0,0,0,-28.6,151
+QLD Border Rivers,Cotton,7874,5896683,0,5.9,-28.6,151
+QLD Border Rivers,Grapevines,673,5206825,0,5.21,-28.6,151
+QLD Border Rivers,Other broadacre,0,1571809,0,1.57,-28.6,151
+QLD Border Rivers,Other cereals,0,2177029,0,2.18,-28.6,151
+QLD Border Rivers,Pastures - Grazing,579,3758918,0,3.76,-28.6,151
+QLD Border Rivers,Pastures - Hay,7418,6559328,0,6.56,-28.6,151
+QLD Border Rivers,Vegetables,5382,40909568,0,40.91,-28.6,151
+QLD Condamine-Balonne,All other crops,26758,0,0,0,-27.8,149.5
+QLD Condamine-Balonne,Cotton,15240,16202253,0,16.2,-27.8,149.5
+QLD Condamine-Balonne,Dairy,0,21203208,0,21.2,-27.8,149.5
+QLD Condamine-Balonne,Grapevines,53,412625,0,0.41,-27.8,149.5
+QLD Condamine-Balonne,Other broadacre,0,3535886,0,3.54,-27.8,149.5
+QLD Condamine-Balonne,Other cereals,0,11614147,0,11.61,-27.8,149.5
+QLD Condamine-Balonne,Pastures - Grazing,16937,33170669,0,33.17,-27.8,149.5
+QLD Condamine-Balonne,Pastures - Hay,29543,20940484,0,20.94,-27.8,149.5
+QLD Condamine-Balonne,Vegetables,2736,24028702,0,24.03,-27.8,149.5
+QLD Moonie,All other crops,1593,0,0,0,-28,150.3
+QLD Moonie,Cotton,487,365034,0,0.37,-28,150.3
+QLD Moonie,Grapevines,8,65336,0,0.07,-28,150.3
+QLD Moonie,Other broadacre,0,272442,0,0.27,-28,150.3
+QLD Moonie,Other cereals,0,297521,0,0.3,-28,150.3
+QLD Moonie,Pastures - Grazing,236,1534631,0,1.53,-28,150.3
+QLD Moonie,Pastures - Hay,2440,2173627,0,2.17,-28,150.3
+QLD Moonie,Vegetables,67,510115,0,0.51,-28,150.3
+QLD Warrego-Paroo,Grapevines,119,212467,0,0.21,-27.5,146
+QLD Warrego-Paroo,Pastures - Hay,0,754204,0,0.75,-27.5,146
+SA Adelaide and Mt Lofty,Dairy,0,21788109,0,21.79,-34.9,138.7
+SA Adelaide and Mt Lofty,Grapevines,35344,61349612,0,61.35,-34.9,138.7
+SA Adelaide and Mt Lofty,Other cereals,0,294193,0,0.29,-34.9,138.7
+SA Adelaide and Mt Lofty,Pastures - Grazing,4496,1129629,0,1.13,-34.9,138.7
+SA Adelaide and Mt Lofty,Pastures - Hay,220,0,0,0,-34.9,138.7
+SA Adelaide and Mt Lofty,Vegetables,9418,0,0,0,-34.9,138.7
+SA Murray,All other crops,154,0,204,0,-34.4,139.4
+SA Murray,Almonds,107992,147434772,204,147.43,-34.4,139.4
+SA Murray,Dairy,0,23548281,204,23.55,-34.4,139.4
+SA Murray,Fruit,70698,246496056,204,246.5,-34.4,139.4
+SA Murray,Grapevines,119520,293657538,204,293.66,-34.4,139.4
+SA Murray,Other broadacre,0,10500,204,0.01,-34.4,139.4
+SA Murray,Other cereals,0,66885,204,0.07,-34.4,139.4
+SA Murray,Pastures - Grazing,15445,6080215,204,6.08,-34.4,139.4
+SA Murray,Pastures - Hay,3958,890796,204,0.89,-34.4,139.4
+SA Murray,Vegetables,21911,160367343,204,160.37,-34.4,139.4
+VIC Goulburn-Broken,All other crops,22215,0,399,0,-36.7,145.2
+VIC Goulburn-Broken,Dairy,0,355646408,399,355.65,-36.7,145.2
+VIC Goulburn-Broken,Fruit,50719,348341492,399,348.34,-36.7,145.2
+VIC Goulburn-Broken,Grapevines,6661,11487687,399,11.49,-36.7,145.2
+VIC Goulburn-Broken,Other broadacre,0,2127010,399,2.13,-36.7,145.2
+VIC Goulburn-Broken,Other cereals,0,13574571,399,13.57,-36.7,145.2
+VIC Goulburn-Broken,Pastures - Grazing,219106,206814207,399,206.81,-36.7,145.2
+VIC Goulburn-Broken,Pastures - Hay,59483,32111063,399,32.11,-36.7,145.2
+VIC Goulburn-Broken,Vegetables,6068,71584077,399,71.58,-36.7,145.2
+VIC Loddon-Campaspe,All other crops,5112,0,390,0,-36.6,144.3
+VIC Loddon-Campaspe,Dairy,0,29939619,390,29.94,-36.6,144.3
+VIC Loddon-Campaspe,Fruit,1898,33974515,390,33.97,-36.6,144.3
+VIC Loddon-Campaspe,Grapevines,2373,4997558,390,5,-36.6,144.3
+VIC Loddon-Campaspe,Other broadacre,0,379028,390,0.38,-36.6,144.3
+VIC Loddon-Campaspe,Other cereals,0,3592811,390,3.59,-36.6,144.3
+VIC Loddon-Campaspe,Pastures - Grazing,17397,17110772,390,17.11,-36.6,144.3
+VIC Loddon-Campaspe,Pastures - Hay,6407,3057097,390,3.06,-36.6,144.3
+VIC Loddon-Campaspe,Vegetables,3248,33496722,390,33.5,-36.6,144.3
+VIC Murray Above,All other crops,6202,0,454,0,-36.1,146
+VIC Murray Above,Dairy,0,86586606,454,86.59,-36.1,146
+VIC Murray Above,Fruit,10843,85958046,454,85.96,-36.1,146
+VIC Murray Above,Grapevines,2024,3669986,454,3.67,-36.1,146
+VIC Murray Above,Other broadacre,0,868126,454,0.87,-36.1,146
+VIC Murray Above,Other cereals,0,677962,454,0.68,-36.1,146
+VIC Murray Above,Pastures - Grazing,41889,34781432,454,34.78,-36.1,146
+VIC Murray Above,Pastures - Hay,10777,6628759,454,6.63,-36.1,146
+VIC Murray Above,Vegetables,929,11897925,454,11.9,-36.1,146
+VIC Murray Below,All other crops,7744,0,202,0,-35.1,143
+VIC Murray Below,Almonds,369767,503411126,202,503.41,-35.1,143
+VIC Murray Below,Dairy,0,108368576,202,108.37,-35.1,143
+VIC Murray Below,Fruit,89302,203810269,202,203.81,-35.1,143
+VIC Murray Below,Grapevines,79239,477165369,202,477.17,-35.1,143
+VIC Murray Below,Other broadacre,0,567283,202,0.57,-35.1,143
+VIC Murray Below,Other cereals,0,4903462,202,4.9,-35.1,143
+VIC Murray Below,Pastures - Grazing,64733,79779824,202,79.78,-35.1,143
+VIC Murray Below,Pastures - Hay,40709,18849703,202,18.85,-35.1,143
+VIC Murray Below,Vegetables,17630,147193543,202,147.19,-35.1,143
+VIC Ovens,All other crops,6109,0,0,0,-36.5,146.8
+VIC Ovens,Dairy,0,26159361,0,26.16,-36.5,146.8
+VIC Ovens,Grapevines,2358,5089781,0,5.09,-36.5,146.8
+VIC Ovens,Other broadacre,0,846361,0,0.85,-36.5,146.8
+VIC Ovens,Pastures - Grazing,5836,6646643,0,6.65,-36.5,146.8
+VIC Ovens,Pastures - Hay,1081,643088,0,0.64,-36.5,146.8
+VIC Ovens,Vegetables,70,1016265,0,1.02,-36.5,146.8
+VIC Werribee,All other crops,2474,0,0,0,-37.9,144.5
+VIC Werribee,Dairy,0,11993692,0,11.99,-37.9,144.5
+VIC Werribee,Grapevines,652,1138559,0,1.14,-37.9,144.5
+VIC Werribee,Other broadacre,0,202003,0,0.2,-37.9,144.5
+VIC Werribee,Other cereals,0,526782,0,0.53,-37.9,144.5
+VIC Werribee,Pastures - Grazing,5121,4655256,0,4.66,-37.9,144.5
+VIC Werribee,Pastures - Hay,159,169725,0,0.17,-37.9,144.5
+VIC Werribee,Vegetables,4087,59730594,0,59.73,-37.9,144.5
+VIC Wimmera-Avon,All other crops,2719,0,0,0,-36.8,142.5
+VIC Wimmera-Avon,Dairy,0,864780,0,0.86,-36.8,142.5
+VIC Wimmera-Avon,Grapevines,1737,9465199,0,9.47,-36.8,142.5
+VIC Wimmera-Avon,Other broadacre,0,288516,0,0.29,-36.8,142.5
+VIC Wimmera-Avon,Other cereals,0,1930676,0,1.93,-36.8,142.5
+VIC Wimmera-Avon,Pastures - Grazing,5285,12501259,0,12.5,-36.8,142.5
+VIC Wimmera-Avon,Pastures - Hay,1549,777314,0,0.78,-36.8,142.5
+VIC Wimmera-Avon,Vegetables,394,3279372,0,3.28,-36.8,142.5

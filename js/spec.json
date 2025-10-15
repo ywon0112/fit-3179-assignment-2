@@ -1,0 +1,132 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Murray-Darling Basin Water Story",
+    "subtitle": "2020 rainfall, water use and agricultural value by catchment"
+  },
+  "width": 900,
+  "height": 600,
+  "background": "#f5f7fb",
+  "projection": {
+    "type": "mercator",
+    "center": [146, -34],
+    "scale": 1200,
+    "translate": [450, 320]
+  },
+  "data": {
+    "url": "data/australian-states.json",
+    "format": {
+      "type": "json",
+      "property": "features"
+    }
+  },
+  "transform": [
+    {
+      "lookup": "properties.STATE_NAME",
+      "from": {
+        "data": {
+          "values": [
+            {"STATE_NAME": "New South Wales", "in_mdb": true},
+            {"STATE_NAME": "Victoria", "in_mdb": true},
+            {"STATE_NAME": "Queensland", "in_mdb": true},
+            {"STATE_NAME": "South Australia", "in_mdb": true},
+            {"STATE_NAME": "Australian Capital Territory", "in_mdb": true}
+          ]
+        },
+        "key": "STATE_NAME",
+        "fields": ["in_mdb"]
+      }
+    }
+  ],
+  "layer": [
+    {
+      "mark": {
+        "type": "geoshape",
+        "stroke": "#9aa6c1",
+        "strokeWidth": 0.75
+      },
+      "encoding": {
+        "color": {
+          "condition": {
+            "test": "datum.in_mdb == true",
+            "value": "#eef3ff"
+          },
+          "value": "#f0f0f0"
+        }
+      }
+    },
+    {
+      "data": {
+        "url": "data/mdb_2020_data_with_coords.csv"
+      },
+      "transform": [
+        {
+          "aggregate": [
+            {"op": "sum", "field": "Volume_applied", "as": "total_volume"},
+            {"op": "sum", "field": "GVIAP_Millions", "as": "total_gviap"},
+            {"op": "mean", "field": "Rainfall", "as": "avg_rainfall"}
+          ],
+          "groupby": ["Region", "Latitude", "Longitude"]
+        }
+      ],
+      "mark": {
+        "type": "circle",
+        "stroke": "#1f2a44",
+        "strokeWidth": 0.5
+      },
+      "encoding": {
+        "longitude": {"field": "Longitude", "type": "quantitative"},
+        "latitude": {"field": "Latitude", "type": "quantitative"},
+        "size": {
+          "field": "total_volume",
+          "type": "quantitative",
+          "title": "Water used (ML)",
+          "scale": {"range": [30, 1200]},
+          "legend": {"titleFontSize": 12, "labelFontSize": 11}
+        },
+        "color": {
+          "field": "total_gviap",
+          "type": "quantitative",
+          "title": "Agricultural value ($M)",
+          "scale": {"scheme": "inferno"},
+          "legend": {"titleFontSize": 12, "labelFontSize": 11}
+        },
+        "tooltip": [
+          {"field": "Region", "type": "nominal", "title": "Catchment"},
+          {
+            "field": "avg_rainfall",
+            "type": "quantitative",
+            "format": ".0f",
+            "title": "Rainfall (mm)"
+          },
+          {
+            "field": "total_volume",
+            "type": "quantitative",
+            "format": ".0f",
+            "title": "Water use (ML)"
+          },
+          {
+            "field": "total_gviap",
+            "type": "quantitative",
+            "format": ".2f",
+            "title": "Value ($M)"
+          }
+        ]
+      }
+    }
+  ],
+  "config": {
+    "legend": {
+      "orient": "bottom",
+      "direction": "horizontal",
+      "titleFont": "Segoe UI",
+      "labelFont": "Segoe UI"
+    },
+    "title": {
+      "font": "Segoe UI",
+      "fontSize": 20,
+      "subtitleFontSize": 14,
+      "anchor": "start"
+    }
+  }
+}
