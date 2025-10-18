@@ -1,0 +1,95 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "background": "transparent",
+  "config": {
+    "title": {
+      "font": "Segoe UI",
+      "fontSize": 18,
+      "anchor": "start"
+    },
+    "view": {"stroke": null}
+  },
+  "params": [
+    {
+      "name": "selectedRegion",
+      "value": null
+    }
+  ],
+  "hconcat": [
+    {
+      "title": "Water Use in Selected Region",
+      "width": 500,
+      "height": 260,
+      "data": {
+        "url": "data/mdb_2020_data_with_coords.csv"
+      },
+      "transform": [
+        {"filter": "selectedRegion != null && lower(trim(datum.Region)) == lower(trim(selectedRegion))"}
+      ],
+      "mark": "bar",
+      "encoding": {
+        "y": {
+          "field": "Industry",
+          "type": "nominal",
+          "sort": "-x",
+          "title": "Agricultural Industry"
+        },
+        "x": {
+          "field": "Volume_applied",
+          "type": "quantitative",
+          "title": "Water Used (ML)"
+        },
+        "color": {
+          "value": "#1f77b4"
+        },
+        "tooltip": [
+          {"field": "Industry", "type": "nominal"},
+          {
+            "field": "Volume_applied",
+            "type": "quantitative",
+            "title": "Water Used (ML)",
+            "format": ".0f"
+          }
+        ]
+      }
+    },
+    {
+      "title": "Value of Production in Selected Region",
+      "width": 500,
+      "height": 260,
+      "data": {
+        "url": "data/mdb_2020_data_with_coords.csv"
+      },
+      "transform": [
+        {"filter": "selectedRegion != null && lower(trim(datum.Region)) == lower(trim(selectedRegion))"}
+      ],
+      "mark": "bar",
+      "encoding": {
+        "y": {
+          "field": "Industry",
+          "type": "nominal",
+          "sort": "-x",
+          "title": "Agricultural Industry"
+        },
+        "x": {
+          "field": "GVIAP_Millions",
+          "type": "quantitative",
+          "title": "Gross Value ($AUD million)"
+        },
+        "color": {
+          "value": "#FFA500"
+        },
+        "tooltip": [
+          {"field": "Industry", "type": "nominal"},
+          {
+            "field": "GVIAP_Millions",
+            "type": "quantitative",
+            "format": ".1f",
+            "title": "Value ($AUD million)"
+          }
+        ]
+      }
+    }
+  ]
+}
+

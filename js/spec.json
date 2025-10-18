@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
-  "background": "#f5f7fb",
+  "background": "transparent",
   "config": {
     "legend": {
       "orient": "bottom",
@@ -20,7 +20,7 @@
     {
       "title": {
         "text": "Murray-Darling Basin Water Story",
-        "subtitle": "2020 rainfall, water use and agricultural value by catchment"
+        "subtitle": "Bubble Size = Economic Value ($AUD million), Color = Avg. Annual Rainfall (mm) for 2020"
       },
       "width": 900,
       "height": 520,
@@ -106,18 +106,18 @@
             "longitude": {"field": "Longitude", "type": "quantitative"},
             "latitude": {"field": "Latitude", "type": "quantitative"},
             "size": {
-              "field": "total_volume",
-              "type": "quantitative",
-              "title": "Water used (ML)",
-              "scale": {"range": [30, 1200]},
-              "legend": {"titleFontSize": 12, "labelFontSize": 11}
-            },
-            "color": {
               "field": "total_gviap",
               "type": "quantitative",
-              "title": "Agricultural value ($M)",
-              "scale": {"scheme": "inferno"},
-              "legend": {"titleFontSize": 12, "labelFontSize": 11}
+              "title": "Value ($AUD million)",
+              "scale": {"range": [50, 1000]},
+              "legend": {"orient": "top-right", "titleFontSize": 12, "labelFontSize": 11}
+            },
+            "color": {
+              "field": "avg_rainfall",
+              "type": "quantitative",
+              "title": "Avg. Annual Rainfall (mm)",
+              "scale": {"scheme": "blues"},
+              "legend": {"orient": "top-right", "offset": 40, "titleFontSize": 12, "labelFontSize": 11}
             },
             "opacity": {
               "condition": {
@@ -135,16 +135,10 @@
                 "title": "Rainfall (mm)"
               },
               {
-                "field": "total_volume",
-                "type": "quantitative",
-                "format": ".0f",
-                "title": "Water use (ML)"
-              },
-              {
                 "field": "total_gviap",
                 "type": "quantitative",
-                "format": ".2f",
-                "title": "Value ($M)"
+                "format": ".1f",
+                "title": "Value ($AUD million)"
               }
             ]
           }
@@ -169,12 +163,15 @@
               "field": "Industry",
               "type": "nominal",
               "sort": "-x",
-              "title": null
+              "title": "Agricultural Industry"
             },
             "x": {
               "field": "Volume_applied",
               "type": "quantitative",
-              "title": "Water Used (Megalitres)"
+              "title": "Water Used (ML)"
+            },
+            "color": {
+              "value": "#1f77b4"
             },
             "tooltip": [
               {"field": "Industry", "type": "nominal"},
@@ -200,24 +197,18 @@
           "mark": "bar",
           "encoding": {
             "y": {
-              "field": "Region",
-              "type": "nominal",
-              "axis": {
-                "title": null,
-                "labels": false,
-                "ticks": false
-              }
-            },
-            "x": {
-              "aggregate": "sum",
-              "field": "GVIAP_Millions",
-              "type": "quantitative",
-              "title": "Gross Value ($AUD Millions)"
-            },
-            "color": {
               "field": "Industry",
               "type": "nominal",
-              "legend": {"orient": "bottom"}
+              "sort": "-x",
+              "title": "Agricultural Industry"
+            },
+            "x": {
+              "field": "GVIAP_Millions",
+              "type": "quantitative",
+              "title": "Gross Value ($AUD million)"
+            },
+            "color": {
+              "value": "#FFA500"
             },
             "tooltip": [
               {"field": "Industry", "type": "nominal"},
@@ -225,7 +216,7 @@
                 "field": "GVIAP_Millions",
                 "type": "quantitative",
                 "format": ".1f",
-                "title": "Value ($M)"
+                "title": "Value ($AUD million)"
               }
             ]
           }
