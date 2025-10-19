@@ -18,7 +18,7 @@
   },
   "title": {
     "text": "Murray-Darling Basin Water Story",
-    "subtitle": "Bubble Size = Economic Value ($AUD million), Color = Avg. Annual Rainfall (mm) for 2020"
+    "subtitle": "Bubble Size = Economic Value ($AUD million), Color = Average Annual Rainfall (mm) for 2020"
   },
   "width": 850,
   "height": 600,
@@ -112,7 +112,7 @@
         "color": {
           "field": "avg_rainfall",
           "type": "quantitative",
-          "title": "Avg. Annual Rainfall (mm)",
+          "title": "Average Annual Rainfall (mm)",
           "scale": {"scheme": "blues"},
           "legend": {"orient": "top-right", "offset": 40, "titleFontSize": 12, "labelFontSize": 11}
         },

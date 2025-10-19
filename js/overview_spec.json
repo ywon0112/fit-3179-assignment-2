@@ -19,7 +19,7 @@
   ],
   "mark": { "type": "point", "filled": true },
   "encoding": {
-    "x": { "field": "avg_rainfall", "type": "quantitative", "title": "Avg. Annual Rainfall (mm)" },
+    "x": { "field": "avg_rainfall", "type": "quantitative", "title": "Average Annual Rainfall (mm)" },
     "y": { "field": "total_gviap_millions", "type": "quantitative", "title": "Total Value ($AUD million)" },
     "size": { "field": "total_water_use_ML", "type": "quantitative", "title": "Total Water Use (ML)", "scale": { "range": [50, 2000] } },
     "color": { "value": "#888888" },
