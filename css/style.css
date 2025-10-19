@@ -60,3 +60,23 @@ p {
     overflow-x: auto;
 }
 
+.vis-row {
+    display: grid;
+    grid-template-columns: minmax(420px, 1fr) 1fr;
+    gap: 20px;
+    align-items: start;
+}
+
+.vis-card {
+    background-color: #ffffff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 800px) {
+    .vis-row {
+        grid-template-columns: 1fr;
+    }
+}
+

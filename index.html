@@ -34,16 +34,28 @@
         </p>
 
         <div class="vis-container">
-            <div id="charts_vis"></div>
+            <div id="overview_vis"></div>
+            <p>Overview: Each point is a catchment. X = average annual rainfall (mm). Y = total irrigated value ($AUD million). Bubble size = total water use (ML). Selecting a catchment on the map highlights it here.</p>
+        </div>
+ 
+        <div class="vis-container vis-row">
+            <div class="vis-card"><div id="water_vis"></div></div>
+            <div>
+                <h2>Water Use by Industry</h2>
+                <p>Shows how irrigation water (ML) is distributed across major industries in the selected catchment. Use this to compare water intensity across sectors.</p>
+            </div>
         </div>
 
-        <h2>Key Insights</h2>
-        <p>
-            The visualization reveals a powerful insight: the most economically valuable regions are not always those with the highest rainfall. By clicking on the large, light-blue bubbles (low rain, high value) like the 'NSW Murrumbidgee' or 'VIC Goulburn-Broken', you can see how extensive use of irrigation for high-value crops like cotton and grapevines drives economic output, highlighting the critical importance of water management in overcoming natural constraints.
-        </p>
+        <div class="vis-container vis-row">
+            <div class="vis-card"><div id="value_vis"></div></div>
+            <div>
+                <h2>Economic Value by Industry</h2>
+                <p>Displays the gross value of irrigated production ($AUD million) by industry for the selected catchment. Contrast this with water use to see efficiency/value creation.</p>
+            </div>
+        </div>
 
         <div class="footer">
-            <p><strong>Author:</strong> [Your Name]</p>
+            <p><strong>Author:</strong> Wong Yie Meng</p>
             <p><strong>Data Source:</strong> ABARES, Murray-Darling Basin water market catchment dataset 2021.</p>
         </div>
     </div>
@@ -52,57 +64,44 @@
         console.log('Loading visualizations...');
         
         const mapSpec = "js/map_spec.json";
-        const chartsSpec = "js/charts_spec.json";
+        const overviewSpec = "js/overview_spec.json";
+        const waterSpec = "js/water_use_spec.json";
+        const valueSpec = "js/value_spec.json";
+        let overviewView, waterView, valueView;
 
         // Embed the map
         vegaEmbed('#map_vis', mapSpec, {actions: false}).then(result => {
-            console.log('Map loaded successfully');
             const mapView = result.view;
 
-            // Embed the charts
-            vegaEmbed('#charts_vis', chartsSpec, {actions: false}).then(result2 => {
-                console.log('Charts loaded successfully');
-                const chartsView = result2.view;
+            // Embed overview, water, and value specs
+            Promise.all([
+              vegaEmbed('#overview_vis', overviewSpec, {actions: false}),
+              vegaEmbed('#water_vis', waterSpec, {actions: false}),
+              vegaEmbed('#value_vis', valueSpec, {actions: false})
+            ]).then(([o, w, v]) => {
+              overviewView = o.view; waterView = w.view; valueView = v.view;
 
-                // Listen to the selection tuple signal which contains the selected data
-                mapView.addSignalListener('region_select_tuple', function(name, value) {
-                    console.log('Selection tuple changed:', value);
-                    
-                    if (value && value.values && value.values.length > 0) {
-                        let regionIndex = -1;
-                        if (value.fields) {
-                            for (let i = 0; i < value.fields.length; i++) {
-                                const field = value.fields[i];
-                                const fieldName = typeof field === 'object' ? field.field : field;
-                                if (fieldName === 'Region') {
-                                    regionIndex = i;
-                                    break;
-                                }
-                            }
-                        }
-
-                        const firstValue = value.values[0];
-                        const selectedRegion = Array.isArray(firstValue)
-                            ? (regionIndex !== -1 ? firstValue[regionIndex] : firstValue[0])
-                            : firstValue;
-
-                        const selectedRegionTrimmed = (selectedRegion || '').toString().trim();
-                        console.log('Resolved region:', selectedRegionTrimmed);
-
-                        if (selectedRegionTrimmed) {
-                            chartsView.signal('selectedRegion', selectedRegionTrimmed).run();
-                            console.log('Charts signal set to:', selectedRegionTrimmed);
-                        }
-                    } else {
-                        console.log('Selection cleared or empty');
-                    }
-                });
-            }).catch(err => {
-                console.error('Error loading charts:', err);
-            });
-        }).catch(err => {
-            console.error('Error loading map:', err);
-        });
+              // Forward map selection to all three views
+              mapView.addSignalListener('region_select_tuple', function(name, value) {
+                let selectedRegion = null;
+                if (value && value.values && value.values.length > 0) {
+                  const fields = value.fields || [];
+                  let regionIdx = -1;
+                  for (let i = 0; i < fields.length; i++) {
+                    const f = fields[i];
+                    const fname = typeof f === 'object' ? f.field : f;
+                    if (fname === 'Region') { regionIdx = i; break; }
+                  }
+                  const firstVal = value.values[0];
+                  const regionVal = Array.isArray(firstVal) ? (regionIdx !== -1 ? firstVal[regionIdx] : firstVal[0]) : firstVal;
+                  selectedRegion = (regionVal || '').toString().trim() || null;
+                }
+                overviewView.signal('selectedRegion', selectedRegion).run();
+                waterView.signal('selectedRegion', selectedRegion).run();
+                valueView.signal('selectedRegion', selectedRegion).run();
+              });
+            }).catch(console.error);
+        }).catch(console.error);
     </script>
 </body>
 </html>

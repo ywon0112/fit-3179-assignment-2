@@ -1,0 +1,21 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "background": "transparent",
+  "config": { "view": { "stroke": null } },
+  "params": [ { "name": "selectedRegion", "value": null } ],
+  "title": "Value of Production in Selected Region",
+  "width": 500,
+  "height": 260,
+  "data": { "url": "data/mdb_2020_data_with_coords.csv" },
+  "transform": [ { "filter": "selectedRegion != null && lower(trim(datum.Region)) == lower(trim(selectedRegion))" } ],
+  "mark": "bar",
+  "encoding": {
+    "y": { "field": "Industry", "type": "nominal", "sort": "-x", "title": "Agricultural Industry" },
+    "x": { "field": "GVIAP_Millions", "type": "quantitative", "title": "Gross Value ($AUD million)" },
+    "color": { "value": "#FFA500" },
+    "tooltip": [
+      { "field": "Industry", "type": "nominal" },
+      { "field": "GVIAP_Millions", "type": "quantitative", "title": "Value ($AUD million)", "format": ".1f" }
+    ]
+  }
+}

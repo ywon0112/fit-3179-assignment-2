@@ -15,80 +15,89 @@
       "value": null
     }
   ],
-  "hconcat": [
+  "vconcat": [
     {
-      "title": "Water Use in Selected Region",
-      "width": 500,
-      "height": 260,
-      "data": {
-        "url": "data/mdb_2020_data_with_coords.csv"
-      },
+      "title": "Overview: Rainfall, Water Use & Value per MDB Region (2020)",
+      "width": 1000,
+      "height": 380,
+      "data": { "url": "data/mdb_2020_data_with_coords.csv" },
       "transform": [
-        {"filter": "selectedRegion != null && lower(trim(datum.Region)) == lower(trim(selectedRegion))"}
+        {
+          "aggregate": [
+            {"op": "sum", "field": "Volume_applied", "as": "total_water_use_ML"},
+            {"op": "sum", "field": "GVIAP_Millions", "as": "total_gviap_millions"}
+          ],
+          "groupby": ["Region", "Latitude", "Longitude", "Rainfall"]
+        }
       ],
-      "mark": "bar",
+      "mark": { "type": "point", "filled": true },
       "encoding": {
-        "y": {
-          "field": "Industry",
-          "type": "nominal",
-          "sort": "-x",
-          "title": "Agricultural Industry"
+        "x": {"field": "Rainfall", "type": "quantitative", "title": "Avg. Annual Rainfall (mm)"},
+        "y": {"field": "total_gviap_millions", "type": "quantitative", "title": "Total Value ($AUD million)"},
+        "size": {"field": "total_water_use_ML", "type": "quantitative", "title": "Total Water Use (ML)", "scale": {"range": [50, 2000]}},
+        "color": {"value": "#888888"},
+        "opacity": {"value": 0.9},
+        "stroke": {
+          "condition": {
+            "test": "selectedRegion != null && lower(trim(datum.Region)) == lower(trim(selectedRegion))",
+            "value": "#1f2a44"
+          },
+          "value": "#cccccc"
         },
-        "x": {
-          "field": "Volume_applied",
-          "type": "quantitative",
-          "title": "Water Used (ML)"
-        },
-        "color": {
-          "value": "#1f77b4"
+        "strokeWidth": {
+          "condition": {
+            "test": "selectedRegion != null && lower(trim(datum.Region)) == lower(trim(selectedRegion))",
+            "value": 2
+          },
+          "value": 0.5
         },
         "tooltip": [
-          {"field": "Industry", "type": "nominal"},
-          {
-            "field": "Volume_applied",
-            "type": "quantitative",
-            "title": "Water Used (ML)",
-            "format": ".0f"
-          }
+          {"field": "Region", "type": "nominal", "title": "Region"},
+          {"field": "Rainfall", "type": "quantitative", "title": "Rainfall (mm)", "format": ".0f"},
+          {"field": "total_gviap_millions", "type": "quantitative", "title": "Value ($M)", "format": ".1f"},
+          {"field": "total_water_use_ML", "type": "quantitative", "title": "Water Use (ML)", "format": ".0f"}
         ]
       }
     },
     {
-      "title": "Value of Production in Selected Region",
-      "width": 500,
-      "height": 260,
-      "data": {
-        "url": "data/mdb_2020_data_with_coords.csv"
-      },
-      "transform": [
-        {"filter": "selectedRegion != null && lower(trim(datum.Region)) == lower(trim(selectedRegion))"}
-      ],
-      "mark": "bar",
-      "encoding": {
-        "y": {
-          "field": "Industry",
-          "type": "nominal",
-          "sort": "-x",
-          "title": "Agricultural Industry"
-        },
-        "x": {
-          "field": "GVIAP_Millions",
-          "type": "quantitative",
-          "title": "Gross Value ($AUD million)"
-        },
-        "color": {
-          "value": "#FFA500"
-        },
-        "tooltip": [
-          {"field": "Industry", "type": "nominal"},
-          {
-            "field": "GVIAP_Millions",
-            "type": "quantitative",
-            "format": ".1f",
-            "title": "Value ($AUD million)"
+      "hconcat": [
+        {
+          "title": "Water Use in Selected Region",
+          "width": 500,
+          "height": 260,
+          "data": { "url": "data/mdb_2020_data_with_coords.csv" },
+          "transform": [ {"filter": "selectedRegion != null && lower(trim(datum.Region)) == lower(trim(selectedRegion))"} ],
+          "mark": "bar",
+          "encoding": {
+            "y": {"field": "Industry", "type": "nominal", "sort": "-x", "title": "Agricultural Industry"},
+            "x": {"field": "Volume_applied", "type": "quantitative", "title": "Water Used (ML)"},
+            "color": {"value": "#1f77b4"},
+            "opacity": {"condition": {"test": "!!selectedRegion", "value": 1}, "value": 0},
+            "tooltip": [
+              {"field": "Industry", "type": "nominal"},
+              {"field": "Volume_applied", "type": "quantitative", "title": "Water Used (ML)", "format": ".0f"}
+            ]
           }
-        ]
-      }
+        },
+        {
+          "title": "Value of Production in Selected Region",
+          "width": 500,
+          "height": 260,
+          "data": { "url": "data/mdb_2020_data_with_coords.csv" },
+          "transform": [ {"filter": "selectedRegion != null && lower(trim(datum.Region)) == lower(trim(selectedRegion))"} ],
+          "mark": "bar",
+          "encoding": {
+            "y": {"field": "Industry", "type": "nominal", "sort": "-x", "title": "Agricultural Industry"},
+            "x": {"field": "GVIAP_Millions", "type": "quantitative", "title": "Gross Value ($AUD million)"},
+            "color": {"value": "#FFA500"},
+            "opacity": {"condition": {"test": "!!selectedRegion", "value": 1}, "value": 0},
+            "tooltip": [
+              {"field": "Industry", "type": "nominal"},
+              {"field": "GVIAP_Millions", "type": "quantitative", "format": ".1f", "title": "Value ($AUD million)"}
+            ]
+          }
+        }
+      ]
     }
   ]
 }

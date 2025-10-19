@@ -95,7 +95,7 @@
             "type": "point",
             "fields": ["Region"],
             "on": "click",
-            "clear": false
+            "clear": "dblclick"
           }
         }
       ],
@@ -117,11 +117,7 @@
           "legend": {"orient": "top-right", "offset": 40, "titleFontSize": 12, "labelFontSize": 11}
         },
         "opacity": {
-          "condition": {
-            "param": "region_select",
-            "value": 1
-          },
-          "value": 0.6
+          "value": 0.85
         },
         "stroke": {
           "condition": {
