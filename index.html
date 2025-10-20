@@ -16,19 +16,25 @@
     <div class="container">
         <h1>The Lifeblood of a Nation</h1>
         <p style="text-align: center; font-size: 1.2rem; color: #495057;">Water and Wealth in the Murray-Darling Basin (2020)</p>
-        <p>
-            The Murray-Darling Basin (MDB) is the agricultural heartland of Australia, producing a significant portion of the nation's food and fibre. However, its water resources are limited and highly variable. This visualization explores the crucial relationship between where water naturally falls (Rainfall - the "Cause"), how this water is utilized by different farming industries (Water Use - the "Action"), and the resulting economic output (Agricultural Value - the "Effect"). Discover how different regions within the basin adapted to the conditions of 2020.
-        </p>
-
-        <h2>Explore the Data</h2>
-        <p>
-            The map below shows Australia's Murray-Darling Basin agricultural regions. <strong>White areas</strong> represent the MDB states where our data is focused, <strong>gray areas</strong> show other Australian states for geographic context, and the <strong>blue background</strong> represents the ocean. Each colored bubble on the map represents a catchment region. The <strong>colour</strong> of each bubble indicates the average annual rainfall received in 2020 (lighter blue = less rain, darker blue = more), representing the natural water 'income'. The <strong>size</strong> of each bubble represents the total economic value ($AUD million) generated from irrigated agriculture in that year, showing the economic 'output'. Notice regions like <strong>VIC Murray Below</strong> ($1544M) and <strong>SA Murray</strong> ($879M) generated immense value despite being among the driest areas, receiving only ~200mm rainfall. <strong>Click a bubble</strong> to explore the water use driving this production.
-        </p>
+        
+        <div class="byline">
+            <p>By <strong>Wong Yie Meng</strong></p>
+            <p>Published: <strong>October 21, 2025</strong></p>
+        </div>
         
         <div class="vis-container">
             <div id="map_vis"></div>
             <button id="clear_selection_btn" class="clear-btn">Clear Selection</button>
         </div>
+
+        <p class="lede">
+            The Murray-Darling Basin (MDB) is the agricultural heartland of Australia, producing a significant portion of the nation's food and fibre. However, its water resources are limited and highly variable. This visualization explores the crucial relationship between where water naturally falls (Rainfall - the "Cause"), how this water is utilized by different farming industries (Water Use - the "Action"), and the resulting economic output (Agricultural Value - the "Effect"). Discover how different regions within the basin adapted to the conditions of 2020.
+        </p>
+
+        <h2>Explore the Data</h2>
+        <p>
+            The map above shows Australia's Murray-Darling Basin agricultural regions. <strong>White areas</strong> represent the MDB states where our data is focused, <strong>gray areas</strong> show other Australian states for geographic context, and the <strong>blue background</strong> represents the ocean. Each colored bubble on the map represents a catchment region. The <strong>colour</strong> of each bubble indicates the average annual rainfall received in 2020 (lighter blue = less rain, darker blue = more), representing the natural water 'income'. The <strong>size</strong> of each bubble represents the total economic value ($AUD million) generated from irrigated agriculture in that year, showing the economic 'output'. Notice regions like <strong>VIC Murray Below</strong> ($1544M) and <strong>SA Murray</strong> ($879M) generated immense value despite being among the driest areas, receiving only ~200mm rainfall. <strong>Click a bubble</strong> to select it. This will <strong>highlight its position in the overview scatter plot</strong> below and filter the two bar charts to show only that region's data.
+        </p>
 
         <div class="vis-container">
             <div id="overview_vis"></div>
@@ -57,8 +63,36 @@
         </p>
 
         <div class="footer">
-            <p><strong>Author:</strong> Wong Yie Meng</p>
-            <p><strong>Data Source:</strong> ABARES, Murray-Darling Basin water market catchment dataset 2021.</p>
+            <hr>
+            <h2>About this Visualisation</h2>
+            
+            <p>
+                This visualisation was created by <strong>Wong Yie Meng</strong> as an assignment for 
+                FIT3179 Data Visualisation 2 (Semester 2, 2025) at Monash University.
+            </p>
+            
+            <h3>Data Source</h3>
+            <p>
+                The data for this project was sourced from the Australian Bureau of Agricultural 
+                and Resource Economics and Sciences (ABARES). The original dataset, 
+                "Murray-Darling Basin water market dataset", is publicly available from:
+            </p>
+            <p class="source-link">
+                <a href="https://www.agriculture.gov.au/abares/research-topics/water/mdb-water-market-dataset" target="_blank">
+                    https://www.agriculture.gov.au/abares/research-topics/water/mdb-water-market-dataset
+                </a>
+            </p>
+
+            <h3>Data Processing</h3>
+            <p>
+                The following original files were cleaned, processed, and combined into a single dataset 
+                (`mdb_2020_data_with_coords.csv`) for use in this visualisation:
+            </p>
+            <ul>
+                <li>MDBWaterMarketCatchmentDataset_Demand_v1.0.0.xlsx - Demand - Area and Water use.csv</li>
+                <li>MDBWaterMarketCatchmentDataset_Demand_v1.0.0.xlsx - Demand - Production and Value.csv</li>
+                <li>MDBWaterMarketCatchmentDataset_Supply_v1.0.0.xlsx - Supply.csv</li>
+            </ul>
         </div>
     </div>
 
