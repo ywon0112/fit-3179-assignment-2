@@ -17,26 +17,40 @@
       "groupby": ["Region"]
     }
   ],
-  "mark": { "type": "point", "filled": true },
-  "encoding": {
-    "x": { "field": "avg_rainfall", "type": "quantitative", "title": "Average Annual Rainfall (mm)" },
-    "y": { "field": "total_gviap_millions", "type": "quantitative", "title": "Total Value ($AUD million)" },
-    "size": { "field": "total_water_use_ML", "type": "quantitative", "title": "Total Water Use (ML)", "scale": { "range": [50, 2000] } },
-    "color": { "value": "#888888" },
-    "opacity": { "value": 0.9 },
-    "stroke": {
-      "condition": { "test": "selectedRegion != null && lower(trim(datum.Region)) == lower(trim(selectedRegion))", "value": "#1f2a44" },
-      "value": "#cccccc"
+  "layer": [
+    {
+      "mark": { "type": "point", "filled": true },
+      "encoding": {
+        "x": { "field": "avg_rainfall", "type": "quantitative", "title": "Average Annual Rainfall (mm)" },
+        "y": { "field": "total_gviap_millions", "type": "quantitative", "title": "Total Value ($AUD million)" },
+        "size": { "field": "total_water_use_ML", "type": "quantitative", "title": "Total Water Use (ML)", "scale": { "range": [50, 2000] } },
+        "color": { "value": "#888888" },
+        "opacity": { "value": 0.9 },
+        "stroke": {
+          "condition": { "test": "selectedRegion != null && lower(trim(datum.Region)) == lower(trim(selectedRegion))", "value": "#1f2a44" },
+          "value": "#cccccc"
+        },
+        "strokeWidth": {
+          "condition": { "test": "selectedRegion != null && lower(trim(datum.Region)) == lower(trim(selectedRegion))", "value": 2 },
+          "value": 0.5
+        },
+        "tooltip": [
+          { "field": "Region", "type": "nominal", "title": "Region" },
+          { "field": "avg_rainfall", "type": "quantitative", "title": "Rainfall (mm)", "format": ".0f" },
+          { "field": "total_gviap_millions", "type": "quantitative", "title": "Value ($M)", "format": ".1f" },
+          { "field": "total_water_use_ML", "type": "quantitative", "title": "Water Use (ML)", "format": ".0f" }
+        ]
+      }
     },
-    "strokeWidth": {
-      "condition": { "test": "selectedRegion != null && lower(trim(datum.Region)) == lower(trim(selectedRegion))", "value": 2 },
-      "value": 0.5
-    },
-    "tooltip": [
-      { "field": "Region", "type": "nominal", "title": "Region" },
-      { "field": "avg_rainfall", "type": "quantitative", "title": "Rainfall (mm)", "format": ".0f" },
-      { "field": "total_gviap_millions", "type": "quantitative", "title": "Value ($M)", "format": ".1f" },
-      { "field": "total_water_use_ML", "type": "quantitative", "title": "Water Use (ML)", "format": ".0f" }
-    ]
-  }
+    { "mark": { "type": "text", "fontSize": 11, "fontStyle": "italic", "fill": "#666", "align": "left" },
+      "encoding": { "x": {"value": 50}, "y": {"value": 25}, "text": {"value": "←↑ High Value, Low Rainfall"} } },
+    { "mark": { "type": "text", "fontSize": 11, "fontStyle": "italic", "fill": "#666", "align": "left" },
+      "encoding": { "x": {"value": 50}, "y": {"value": 355}, "text": {"value": "←↓ Low Value, Low Rainfall"} } },
+    { "mark": { "type": "text", "fontSize": 11, "fontStyle": "italic", "fill": "#666", "align": "right" },
+      "encoding": { "x": {"value": 930}, "y": {"value": 25}, "text": {"value": "→↑ High Value, High Rainfall"} } },
+    { "mark": { "type": "text", "fontSize": 11, "fontStyle": "italic", "fill": "#666", "align": "right" },
+      "encoding": { "x": {"value": 930}, "y": {"value": 355}, "text": {"value": "→↓ Low Value, High Rainfall"} } },
+    { "mark": {"type": "text", "align": "left", "fontSize": 12, "fontWeight": "bold", "fill": "#444"},
+      "encoding": { "x": {"value": 50}, "y": {"value": 65}, "text": {"value": "Bubble Size = Total Water Use (ML). 'Thirstier' catchments are bigger."} } }
+  ]
 }
