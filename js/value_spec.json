@@ -8,21 +8,79 @@
   "width": 700,
   "height": 320,
   "data": { "url": "data/mdb_2020_data_with_coords.csv" },
-  "transform": [ { "filter": "selectedRegion != null && lower(trim(datum.Region)) == lower(trim(selectedRegion))" } ],
-  "mark": "bar",
-  "encoding": {
-    "y": {
-      "field": "Industry",
-      "type": "nominal",
-      "sort": "-x",
-      "title": "Agricultural Industry",
-      "axis": {"labelLimit": 260, "labelPadding": 12, "labelAlign": "right", "labelFlush": false}
+  "transform": [
+    { "calculate": "toNumber(datum.GVIAP_Millions)", "as": "GVIAP_Millions_num" }
+  ],
+  "layer": [
+    {
+      "mark": {
+        "type": "text",
+        "align": "center",
+        "baseline": "middle",
+        "fontSize": 14,
+        "color": "#666",
+        "text": "Select a catchment on the map to see its Economic Value by industry."
+      },
+      "encoding": {
+        "opacity": {
+          "condition": {"test": "selectedRegion == null", "value": 1},
+          "value": 0
+        }
+      }
     },
-    "x": { "field": "GVIAP_Millions", "type": "quantitative", "title": "Gross Value ($AUD million)" },
-    "color": { "value": "#FFA500" },
-    "tooltip": [
-      { "field": "Industry", "type": "nominal" },
-      { "field": "GVIAP_Millions", "type": "quantitative", "title": "Value ($AUD million)", "format": ".1f" }
-    ]
-  }
+    {
+      "transform": [
+        { "filter": "selectedRegion != null && lower(trim(datum.Region)) == lower(trim(selectedRegion))" },
+        {
+          "window": [{"op": "rank", "as": "rank"}],
+          "sort": [{"field": "GVIAP_Millions_num", "order": "descending"}]
+        },
+        {
+          "calculate": "datum.rank == 1 ? '🥇 Top Earner' : ''",
+          "as": "annotation_label"
+        }
+      ],
+      "encoding": {
+        "opacity": {
+          "condition": {"test": "selectedRegion == null", "value": 0},
+          "value": 1
+        },
+        "y": {
+          "field": "Industry",
+          "type": "nominal",
+          "sort": {"field": "GVIAP_Millions_num", "order": "descending"},
+          "title": "Agricultural Industry",
+          "axis": {"labelLimit": 260, "labelPadding": 12, "labelAlign": "right", "labelFlush": false}
+        }
+      },
+      "layer": [
+        {
+          "mark": "bar",
+          "encoding": {
+            "x": { "field": "GVIAP_Millions_num", "type": "quantitative", "title": "Gross Value ($AUD million)" },
+            "color": { "value": "#FFA500" },
+            "tooltip": [
+              { "field": "Industry", "type": "nominal" },
+              { "field": "GVIAP_Millions_num", "type": "quantitative", "title": "Gross Value ($M)", "format": ".1f" }
+            ]
+          }
+        },
+        {
+          "mark": {
+            "type": "text",
+            "align": "left",
+            "baseline": "middle",
+            "dx": 5,
+            "fontSize": 12,
+            "fontWeight": "bold"
+          },
+          "encoding": {
+            "x": { "field": "GVIAP_Millions_num", "type": "quantitative" },
+            "text": { "field": "annotation_label", "type": "nominal" },
+            "color": { "value": "#000" }
+          }
+        }
+      ]
+    }
+  ]
 }
