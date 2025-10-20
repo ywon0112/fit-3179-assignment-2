@@ -8,21 +8,79 @@
   "width": 700,
   "height": 320,
   "data": { "url": "data/mdb_2020_data_with_coords.csv" },
-  "transform": [ { "filter": "selectedRegion != null && lower(trim(datum.Region)) == lower(trim(selectedRegion))" } ],
-  "mark": "bar",
-  "encoding": {
-    "y": {
-      "field": "Industry",
-      "type": "nominal",
-      "sort": "-x",
-      "title": "Agricultural Industry",
-      "axis": {"labelLimit": 260, "labelPadding": 12, "labelAlign": "right", "labelFlush": false}
+  "transform": [
+    { "calculate": "toNumber(datum.Volume_applied)", "as": "Volume_applied_num" }
+  ],
+  "layer": [
+    {
+      "mark": {
+        "type": "text",
+        "align": "center",
+        "baseline": "middle",
+        "fontSize": 14,
+        "color": "#666",
+        "text": "Select a catchment on the map to see its Water Use by industry."
+      },
+      "encoding": {
+        "opacity": {
+          "condition": {"test": "selectedRegion == null", "value": 1},
+          "value": 0
+        }
+      }
     },
-    "x": { "field": "Volume_applied", "type": "quantitative", "title": "Water Used (ML)" },
-    "color": { "value": "#1f77b4" },
-    "tooltip": [
-      { "field": "Industry", "type": "nominal" },
-      { "field": "Volume_applied", "type": "quantitative", "title": "Water Used (ML)", "format": ".0f" }
-    ]
-  }
+    {
+      "transform": [
+        { "filter": "selectedRegion != null && lower(trim(datum.Region)) == lower(trim(selectedRegion))" },
+        {
+          "window": [{"op": "rank", "as": "rank"}],
+          "sort": [{"field": "Volume_applied_num", "order": "descending"}]
+        },
+        {
+          "calculate": "datum.rank == 1 ? '🥇 Top User' : ''",
+          "as": "annotation_label"
+        }
+      ],
+      "encoding": {
+        "opacity": {
+          "condition": {"test": "selectedRegion == null", "value": 0},
+          "value": 1
+        },
+        "y": {
+          "field": "Industry",
+          "type": "nominal",
+          "sort": {"field": "Volume_applied_num", "order": "descending"},
+          "title": "Agricultural Industry",
+          "axis": {"labelLimit": 260, "labelPadding": 12, "labelAlign": "right", "labelFlush": false}
+        }
+      },
+      "layer": [
+        {
+          "mark": "bar",
+          "encoding": {
+            "x": { "field": "Volume_applied_num", "type": "quantitative", "title": "Water Used (ML)" },
+            "color": { "value": "#1f77b4" },
+            "tooltip": [
+              { "field": "Industry", "type": "nominal" },
+              { "field": "Volume_applied_num", "type": "quantitative", "title": "Water Used (ML)", "format": ".0f" }
+            ]
+          }
+        },
+        {
+          "mark": {
+            "type": "text",
+            "align": "left",
+            "baseline": "middle",
+            "dx": 5,
+            "fontSize": 12,
+            "fontWeight": "bold"
+          },
+          "encoding": {
+            "x": { "field": "Volume_applied_num", "type": "quantitative" },
+            "text": { "field": "annotation_label", "type": "nominal" },
+            "color": { "value": "#000" }
+          }
+        }
+      ]
+    }
+  ]
 }
