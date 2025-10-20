@@ -14,7 +14,7 @@
       "subtitleFontSize": 14,
       "anchor": "start"
     },
-    "view": {"stroke": null}
+    "view": {"stroke": null, "fill": "#aadaff"}
   },
   "title": {
     "text": "Murray-Darling Basin Water Story",
@@ -55,6 +55,14 @@
   ],
   "layer": [
     {
+      "data": {"sphere": true},
+      "mark": {"type": "geoshape", "fill": "#aadaff", "stroke": null}
+    },
+    {
+      "data": {"graticule": true},
+      "mark": {"type": "geoshape", "stroke": "lightgray", "strokeWidth": 0.5, "filled": false}
+    },
+    {
       "mark": {
         "type": "geoshape",
         "stroke": "#9aa6c1",
@@ -64,7 +72,7 @@
         "color": {
           "condition": {
             "test": "datum.in_mdb == true",
-            "value": "#eef3ff"
+            "value": "#ffffff"
           },
           "value": "#f0f0f0"
         }
@@ -86,7 +94,9 @@
       ],
       "mark": {
         "type": "circle",
-        "cursor": "pointer"
+        "cursor": "pointer",
+        "stroke": "white",
+        "strokeWidth": 0.5
       },
       "params": [
         {
@@ -107,14 +117,14 @@
           "type": "quantitative",
           "title": "Value ($AUD million)",
           "scale": {"range": [50, 1000]},
-          "legend": {"orient": "top-right", "titleFontSize": 12, "labelFontSize": 11}
+          "legend": {"legendX": 700, "legendY": 520, "titleFontSize": 12, "labelFontSize": 11}
         },
         "color": {
           "field": "avg_rainfall",
           "type": "quantitative",
           "title": "Average Annual Rainfall (mm)",
           "scale": {"scheme": "blues"},
-          "legend": {"orient": "top-right", "offset": 40, "titleFontSize": 12, "labelFontSize": 11}
+          "legend": {"legendX": 700, "legendY": 450, "titleFontSize": 12, "labelFontSize": 11}
         },
         "opacity": {
           "value": 0.85
