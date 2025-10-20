@@ -27,6 +27,7 @@
         
         <div class="vis-container">
             <div id="map_vis"></div>
+            <button id="clear_selection_btn" class="clear-btn">Clear Selection</button>
         </div>
 
         <div class="vis-container">
@@ -70,9 +71,24 @@
         const valueSpec = "js/value_spec.json";
         let overviewView, waterView, valueView;
 
+        // Get clear button and initially disable it
+        const clearBtn = document.getElementById('clear_selection_btn');
+        clearBtn.disabled = true;
+
         // Embed the map
         vegaEmbed('#map_vis', mapSpec, {actions: false}).then(result => {
             const mapView = result.view;
+
+            // Set up clear button click handler
+            clearBtn.addEventListener('click', function() {
+                // Clear the selection in the map
+                mapView.signal('region_select_tuple', null).run();
+                
+                // Also clear in the child views
+                overviewView.signal('selectedRegion', null).run();
+                waterView.signal('selectedRegion', null).run();
+                valueView.signal('selectedRegion', null).run();
+            });
 
             // Embed overview, water, and value specs
             Promise.all([
@@ -97,6 +113,10 @@
                   const regionVal = Array.isArray(firstVal) ? (regionIdx !== -1 ? firstVal[regionIdx] : firstVal[0]) : firstVal;
                   selectedRegion = (regionVal || '').toString().trim() || null;
                 }
+                
+                // Enable/disable clear button based on selection
+                clearBtn.disabled = !value || !value.values || value.values.length === 0;
+                
                 overviewView.signal('selectedRegion', selectedRegion).run();
                 waterView.signal('selectedRegion', selectedRegion).run();
                 valueView.signal('selectedRegion', selectedRegion).run();

@@ -81,3 +81,30 @@ p {
     }
 }
 
+.clear-btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 16px;
+    background-color: #0056b3;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    font-size: 0.95rem;
+    font-family: inherit;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.clear-btn:hover {
+    background-color: #003d82;
+}
+
+.clear-btn:active {
+    background-color: #002b5c;
+}
+
+.clear-btn:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
