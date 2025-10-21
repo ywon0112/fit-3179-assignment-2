@@ -22,7 +22,15 @@
             <p>Published: <strong>October 21, 2025</strong></p>
         </div>
         
-        <div class="vis-container">
+        <nav class="sticky-nav">
+            <div class="nav-content">
+                <a href="#section-map">Map</a>
+                <a href="#section-overview">Overview</a>
+                <a href="#section-analysis">Water Use vs. Value</a>
+            </div>
+        </nav>
+        
+        <div id="section-map" class="vis-container">
             <div id="map_vis"></div>
             <button id="clear_selection_btn" class="clear-btn">Clear Selection</button>
         </div>
@@ -36,12 +44,12 @@
             The map above shows Australia's Murray-Darling Basin agricultural regions. <strong>White areas</strong> represent the MDB states where our data is focused, <strong>gray areas</strong> show other Australian states for geographic context, and the <strong>blue background</strong> represents the ocean. Each colored bubble on the map represents a catchment region. The <strong>colour</strong> of each bubble indicates the average annual rainfall received in 2020 (lighter blue = less rain, darker blue = more), representing the natural water 'income'. The <strong>size</strong> of each bubble represents the total economic value ($AUD million) generated from irrigated agriculture in that year, showing the economic 'output'. Notice regions like <strong>VIC Murray Below</strong> ($1544M) and <strong>SA Murray</strong> ($879M) generated immense value despite being among the driest areas, receiving only ~200mm rainfall. <strong>Click a bubble</strong> to select it. This will <strong>highlight its position in the overview scatter plot</strong> below and filter the two bar charts to show only that region's data.
         </p>
 
-        <div class="vis-container">
+        <div id="section-overview" class="vis-container">
             <div id="overview_vis"></div>
             <p>This scatter plot provides a basin-wide overview for 2020. Each point represents one MDB region. Its position shows the relationship between <strong>Rainfall</strong> (X-axis) and the <strong>Total Economic Value</strong> generated (Y-axis). The <strong>size</strong> of the point indicates the <strong>Total Water Use</strong> (ML) for that region. Observe the outliers demonstrating the core story: regions like <strong>VIC Murray Below</strong> (202mm rain, $1544M value, 669k ML used), <strong>SA Murray</strong> (204mm rain, $879M value, 340k ML used), and <strong>NSW Murrumbidgee</strong> (304mm rain, $711M value, 546k ML used) achieve high value despite low-to-moderate rainfall, often correlating with significant water use (large point size). Click a bubble on the map above to see detailed breakdowns.</p>
         </div>
  
-        <div class="vis-container vis-row">
+        <div id="section-analysis" class="vis-container vis-row">
             <div class="vis-card"><div id="water_vis"></div></div>
             <div>
                 <h2>Water Use by Industry</h2>
