@@ -61,7 +61,7 @@
             "color": { "value": "#FFA500" },
             "tooltip": [
               { "field": "Industry", "type": "nominal" },
-              { "field": "GVIAP_Millions_num", "type": "quantitative", "title": "Gross Value ($M)", "format": ".1f" }
+              { "field": "GVIAP_Millions_num", "type": "quantitative", "title": "Gross Value ($AUD million)", "format": ".1f" }
             ]
           }
         },

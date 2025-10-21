@@ -37,7 +37,7 @@
         "tooltip": [
           { "field": "Region", "type": "nominal", "title": "Region" },
           { "field": "avg_rainfall", "type": "quantitative", "title": "Rainfall (mm)", "format": ".0f" },
-          { "field": "total_gviap_millions", "type": "quantitative", "title": "Value ($M)", "format": ".1f" },
+          { "field": "total_gviap_millions", "type": "quantitative", "title": "Value ($AUD million)", "format": ".1f" },
           { "field": "total_water_use_ML", "type": "quantitative", "title": "Water Use (ML)", "format": ".0f" }
         ]
       }
